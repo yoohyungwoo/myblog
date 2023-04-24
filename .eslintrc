@@ -1,10 +1,6 @@
 {
   "extends": "@antfu",
   "rules": {
-    "no-console": "off",
-    "no-use-before-define": "off"
-  },
-  "env": {
-    "node": true
+    "no-console": "off"
   }
 }
