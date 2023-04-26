@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div>
-    <h1>User List</h1>
-  </div>
+  <div />
 </template>
 
 <style scoped>

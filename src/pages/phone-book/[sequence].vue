@@ -1,9 +1,21 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import { getPhoneBook } from '~/pages/phone-book/phoneBookList'
+import type { IPhoneBook } from '~/types/PhoneBook'
 
 const route = useRoute()
+
 const currentDate = ref(new Date())
 const sequence = ref(route.params.sequence)
+const phoneBookInfo = ref<IPhoneBook>()
+
+const getInfo = async () => {
+  phoneBookInfo.value = await getPhoneBook(sequence)
+}
+
+onMounted(() => {
+  getInfo()
+})
 </script>
 
 <template>
@@ -14,7 +26,7 @@ const sequence = ref(route.params.sequence)
     <hr>
     <el-row>
       <el-col
-        v-for="(o, index) in 2"
+        v-for="(o, index) in 1"
         :key="o"
         :span="8"
         :offset="index > 0 ? 2 : 0"
@@ -28,6 +40,7 @@ const sequence = ref(route.params.sequence)
             <span>Yummy hamburger</span>
             <div class="bottom">
               <time class="time">{{ currentDate }}</time>
+              <h1> INFO : {{ phoneBookInfo }} </h1>
               <el-button text class="button">
                 Operating
               </el-button>

@@ -34,7 +34,7 @@ const getPhoneBooks = async () => {
 }
 
 const getPhoneBook = async (sequence) => {
-
+  return books.find(book => book.sequence === sequence)
 }
 
-export { getPhoneBooks, books }
+export { getPhoneBooks, getPhoneBook, books }
