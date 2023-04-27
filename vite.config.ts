@@ -26,9 +26,10 @@ export default defineConfig({
     cors: true, // cross-domain setting permission
     strictPort: true, // If the port is occupied, exit directly
     proxy: {
-      '/app/api': {
-        target: 'https://robotcp-app.abacussw.co.kr',
+      '/api': {
+        target: 'http://localhost:8080',
         changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''),
       },
     },
   },
